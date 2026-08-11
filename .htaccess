@@ -1,0 +1,23 @@
+RewriteEngine On
+
+# Redirect HTTP to HTTPS (except on localhost)
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} !^localhost$ [NC]
+RewriteCond %{HTTP_HOST} !^127\.0\.0\.1$
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+
+# Route /clear-embedding/<id> to clear-embedding.php/<id>
+RewriteRule ^clear-embedding/([0-9]+)/?$ clear-embedding.php/$1 [QSA,L]
+
+# Route /login to login.php
+RewriteRule ^login/?$ login.php [QSA,L]
+
+# Route /register to register.php
+RewriteRule ^register/?$ register.php [QSA,L]
+
+# Set Referrer-Policy header
+<IfModule mod_headers.c>
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
