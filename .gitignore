@@ -1,0 +1,21 @@
+# Virtual Environments
+venv/
+env/
+face_env/
+**/venv/
+**/env/
+**/face_env/
+
+# Python cache & bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+**/__pycache__/
+
+# Logs
+*.log
+insightface_service/*.log
+
+# InsightFace cache / downloads
+.insightface/
+models/

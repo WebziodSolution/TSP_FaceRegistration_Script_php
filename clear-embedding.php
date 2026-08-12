@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 }
 
 // --- Configuration ---
-$env = 'local'; // Options: local, dev, prod
+$env = 'demo'; // Options: local, dev, prod
 $db_urls = [
     'local' => 'mysql+mysqlconnector://root:@localhost/calcsalary',
     'prod'  => 'mysql+mysqlconnector://admin:01eMatrix007!@69.57.172.154:3306/ematrix_calcsalary',

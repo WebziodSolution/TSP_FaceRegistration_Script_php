@@ -1,0 +1,11 @@
+# Virtual Environments
+venv/
+env/
+face_env/
+
+# Python cache & logs
+__pycache__/
+*.py[cod]
+*.log
+.insightface/
+models/
