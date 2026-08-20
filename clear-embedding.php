@@ -35,9 +35,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 }
 
 // --- Configuration ---
-$env = 'demo'; // Options: local, dev, prod
+$env = 'prod'; // Options: local, dev, prod
 $db_urls = [
-    'local' => 'mysql+mysqlconnector://root:@localhost/calcsalary',
+    'local' => 'mysql+mysqlconnector://root:@localhost/demo_calcsalary',
     'prod'  => 'mysql+mysqlconnector://admin:01eMatrix007!@69.57.172.154:3306/ematrix_calcsalary',
     'demo'  => 'mysql+mysqlconnector://admin:01eMatrix007!@69.57.172.154:3306/demo_calcsalary',
 ];
@@ -53,12 +53,12 @@ if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
 }
 
 $is_allowed = true;
-if ($env === 'prod') {
-    $is_allowed = false;
-    if (strpos($client_ip, '192.168.') === 0 || $client_ip === '127.0.0.1' || $client_ip === '150.129.166.66' || $client_ip === '::1') {
-        $is_allowed = true;
-    }
-}
+// if ($env === 'prod') {
+//     $is_allowed = false;
+//     if (strpos($client_ip, '192.168.') === 0 || $client_ip === '127.0.0.1' || $client_ip === '150.129.166.66' || $client_ip === '::1') {
+//         $is_allowed = true;
+//     }
+// }
 
 if (!$is_allowed) {
     http_response_code(403);
